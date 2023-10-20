@@ -9,24 +9,24 @@
 
 1. 實作流程
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.001.jpeg)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.001.jpeg)
 
 
 
 1. 實作
    0. 原始圖
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.002.jpeg)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.002.jpeg)
 
 0. 將原始圖轉灰階圖
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.003.png)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.003.png)
 
 ![ref1]
 
 0. 對(1)做二階微分(Laplacian)
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.005.png)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.005.png)
 
 因為Mask是3\*3的，所以我們使用getpixel()依序抓取原圖九個pixel值，如下所示:
 
@@ -45,65 +45,65 @@
 
 讓兩者去做運算後把得到的result值回傳
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.006.png)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.006.png)
 
-把回傳過來的pixel依序填入Laplacian裡![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.007.jpeg)
+把回傳過來的pixel依序填入Laplacian裡![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.007.jpeg)
 
 因為對影像找edges使用Laplacian雖然可以讓edge的寬度=1pixel，但是它同時也讓平坦區的noise放大，所以改用一階微分來找edges。
 
 0. 讓(1)原始圖和(2)Laplacian相加得到影像銳化的圖
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.008.png)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.008.png)
 
 使原始圖的每一個pixel和Laplacian\_Image的每一個pixel相加，得到影像銳化。
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.009.jpeg)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.009.jpeg)
 
 對影像找edges使用Laplacian雖然可以讓edge的寬度=1pixel，但是它同時也讓平坦區的noise放大，所以改用一階微分來找edges。
 
 0. 對(1)原始圖做一階微分(sobel)
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.010.png)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.010.png)
 
 雖然一階微分有方向性，但是在影像處理不管方向，所以取絕對值。那Sobel同時要對x,y做處理，所以我們的Mask有兩個:
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.011.png)![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.012.png)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.011.png)![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.012.png)
 
 使原始圖和兩個Mask做運算後取絕對值相加後回傳result值
 
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.013.png)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.013.png)
 
 把回傳的pixel值依序填入Sobel裡，得到下圖
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.014.jpeg)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.014.jpeg)
 
 我們可以觀察到使用一階微分找edge真的會讓edge的寬度加大。
 
 0. 讓(4)模糊化
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.015.png)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.015.png)
 
 模糊化的Mask如下所示:
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.016.png)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.016.png)
 
 使原始圖和Mask做運算後回傳result值
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.017.png)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.017.png)
 
 把回傳的result值依序填入Blur裡後得到下圖
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.018.jpeg)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.018.jpeg)
 
 
 0. 對(5)模糊影像作標準化在乘(2)Laplacian
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.019.png)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.019.png)
 
 將Blur的每個pixel除上255做標準化再乘Laplacian\_img的每個pixel，再依序填入Normal得到下圖:
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.020.jpeg)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.020.jpeg)
 
 
 
