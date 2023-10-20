@@ -1,29 +1,29 @@
 ﻿# **Image Enhancement**
 
 
-一、 目的
+## 目的
 
 本次的作業目的就是希望能使影像銳化，在不用函式庫的情況下達到銳化效果。
 
-二、 實作流程
+## 實作流程
 
 ![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.001.jpeg)
 
 
 
-三、 實作
+## 實作
 
-0. 原始圖
+### 原始圖
 
 ![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.002.jpeg)
 
-1. 將原始圖轉灰階圖
+### 將原始圖轉灰階圖
 
 ![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.003.png)
 
 ![ref1]
 
-2. 對(1)做二階微分(Laplacian)
+### 對(1)做二階微分(Laplacian)
 
 ![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.005.png)
 
@@ -50,7 +50,7 @@
 
 因為對影像找edges使用Laplacian雖然可以讓edge的寬度=1pixel，但是它同時也讓平坦區的noise放大，所以改用一階微分來找edges。
 
-3. 讓(1)原始圖和(2)Laplacian相加得到影像銳化的圖
+### 讓(1)原始圖和(2)Laplacian相加得到影像銳化的圖
 
 ![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.008.png)
 
@@ -60,7 +60,7 @@
 
 對影像找edges使用Laplacian雖然可以讓edge的寬度=1pixel，但是它同時也讓平坦區的noise放大，所以改用一階微分來找edges。
 
-4. 對(1)原始圖做一階微分(sobel)
+### 對(1)原始圖做一階微分(sobel)
 
 ![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.010.png)
 
@@ -79,7 +79,7 @@
 
 我們可以觀察到使用一階微分找edge真的會讓edge的寬度加大。
 
-5. 讓(4)模糊化
+### 讓(4)模糊化
 
 ![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.015.png)
 
@@ -96,7 +96,7 @@
 ![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.018.jpeg)
 
 
-6. 對(5)模糊影像作標準化在乘(2)Laplacian
+### 對(5)模糊影像作標準化在乘(2)Laplacian
 
 ![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.019.png)
 
@@ -108,13 +108,13 @@
 
 
 
-7. 讓(6)和原始圖(灰階圖)相加得到銳利化效果
+### 讓(6)和原始圖(灰階圖)相加得到銳利化效果
 
 ![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.021.png)
 
 ![ref2]
 
-四、 實作結果
+## 實作結果
 
 原始圖
 
@@ -124,7 +124,7 @@
 
 ![ref2]
 
-五、 實作心得
+## 實作心得
 
 這次的作業非常有趣，以往如果要做銳利化肯定是到photoshop去做，現在即使不用opencv的function直接得到銳利效果，也可以一步一步手刻程式碼將效果實作出來，不僅可以真正去理解它是如何實作，
 
