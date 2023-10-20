@@ -1,7 +1,5 @@
 ﻿# **Image Enhancement**
-學號:7109056202 
 
-姓名:陳彥儒
 
 1. 目的
 
@@ -111,7 +109,7 @@
 
 0. 讓(6)和原始圖(灰階圖)相加得到銳利化效果
 
-![](Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.021.png)
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.021.png)
 
 ![ref2]
 
@@ -136,6 +134,6 @@
 Noise同時放大，所以我們更傾向用一階微分去找edge。
 
 
-[ref1]: Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.004.jpeg
-[ref2]: Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.022.jpeg
-[ref3]: Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.023.jpeg
+[ref1]: ./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.004.jpeg
+[ref2]: ./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.022.jpeg
+[ref3]: ./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.023.jpeg
