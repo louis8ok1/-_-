@@ -46,7 +46,9 @@
 
 ![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.006.png)
 
-把回傳過來的pixel依序填入Laplacian裡![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.007.jpeg)
+把回傳過來的pixel依序填入Laplacian裡
+
+![](./mk/Aspose.Words.1daa0a90-764d-4f5f-baed-2378dd613a2c.007.jpeg)
 
 因為對影像找edges使用Laplacian雖然可以讓edge的寬度=1pixel，但是它同時也讓平坦區的noise放大，所以改用一階微分來找edges。
 
